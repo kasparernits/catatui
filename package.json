@@ -1,0 +1,19 @@
+{
+  "name": "catatui",
+  "version": "0.0.1",
+  "description": "Terminal UI toolkit for Node.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx examples/runtime_demo.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "keywords": ["terminal","tui","ssh","dashboard","ratatui","nodejs"],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.10.1",
+    "typescript": "^5.9.3"
+  }
+}
