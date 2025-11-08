@@ -24,7 +24,14 @@ export class FramePainter implements PainterAPI {
     for (let i = 0; i < h; i++) this.put(x, y + i, ch, style);
   }
 
-  box(x: number, y: number, w: number, h: number, title?: string, style?: Style) {
+  box(
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    title?: string,
+    style?: Style
+  ) {
     if (w < 2 || h < 2) return;
     this.put(x, y, "┌", style);
     this.put(x + w - 1, y, "┐", style);
@@ -38,6 +45,15 @@ export class FramePainter implements PainterAPI {
       const t = ` ${title} `;
       for (let i = 0; i < t.length && i + 1 < w - 1; i++) {
         this.put(x + 1 + i, y, t[i], style);
+      }
+    }
+  }
+
+  // src/render/painter.ts (inside FramePainter class)
+  rect(x: number, y: number, w: number, h: number, ch = " ", style?: Style) {
+    for (let yy = 0; yy < h; yy++) {
+      for (let xx = 0; xx < w; xx++) {
+        this.put(x + xx, y + yy, ch, style);
       }
     }
   }
