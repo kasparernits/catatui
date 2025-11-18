@@ -47,7 +47,7 @@ async function runSelected() {
   const { cmd } = CMDS[selected];
   try {
     const { stdout, stderr } = await execp(cmd, {
-      shell: "/bin/bash",
+      shell: "/bin/ksh",
       maxBuffer: 2 * 1024 * 1024,
     });
     const out = stdout || "";
