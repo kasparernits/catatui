@@ -18,13 +18,12 @@ term.install();
 input.install();
 
 const execp = promisify(exec);
+const datadir = "/mnt/samsung/bitcoin";
 
 type Cmd = { title: string; cmd: string };
 const CMDS: Cmd[] = [
-  { title: "Uptime", cmd: "uptime" },
-  { title: "Disk usage", cmd: "df -h" },
-  { title: "Who", cmd: "who" },
-  { title: "Uname", cmd: "uname -a" },
+  { title: "Blockchain Info", cmd: `bitcoin-cli -datadir=${datadir} getblockchaininfo` },
+  { title: "Wallet Info", cmd: `bitcoin-cli -datadir=${datadir} getwalletinfo` },
 ];
 
 let selected = 0;
@@ -128,8 +127,8 @@ function Modal(getVisible: () => boolean): Widget {
 const base = vstack([
   {
     render(a, ctx) {
-      Box("Header").render(a, ctx);
-      const title = "CATATUI";
+      Box("BITATUI 🧀").render(a, ctx);
+      const title = "";
       const tx = Math.max(a.x + 1, a.x + Math.floor((a.w - title.length) / 2));
       (ctx.painter as FramePainter).text(tx, a.y, title, {
         fg: 214,
